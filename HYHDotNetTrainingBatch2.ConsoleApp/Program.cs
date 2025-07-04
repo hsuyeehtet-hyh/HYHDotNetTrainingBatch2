@@ -7,8 +7,13 @@ Console.WriteLine("Hello, World!");
 
 
 AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
-adoDotNetExample.Read();
+//adoDotNetExample.Read();
 //adoDotNetExample.Create();
+//adoDotNetExample.Update();
+
+DapperExample dapperExample = new DapperExample();
+//dapperExample.Read();
+dapperExample.Edit();
 
 
 Console.ReadKey();

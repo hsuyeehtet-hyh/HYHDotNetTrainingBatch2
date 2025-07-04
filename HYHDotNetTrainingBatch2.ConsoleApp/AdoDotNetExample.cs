@@ -115,17 +115,27 @@ namespace HYHDotNetTrainingBatch2.ConsoleApp
 
 
 
-        public void update()
+        public void Update()
         {
+            // get id
+            Console.Write("Enter Id: ");
+            int id = int.Parse(Console.ReadLine()!);
+
+            // get name
+            Console.Write("Enter title: ");
+            string title = Console.ReadLine()!;
+
             // connection
             SqlConnection conn = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             conn.Open();
 
             // query
-            string query = @"";
+            string query = $@"UPDATE Tbl_Blog SET BlogTitle=@blogtitle where BlogId = @blogid";
 
             // command
             SqlCommand comd = new SqlCommand(query, conn);
+            comd.Parameters.AddWithValue("@blogid", id);
+            comd.Parameters.AddWithValue("@blogtitle", title);
 
             // executeNonQuery()
             int result = comd.ExecuteNonQuery();
